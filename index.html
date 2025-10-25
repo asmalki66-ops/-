@@ -1,26 +1,66 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>P5js Playground</title>
-    <meta charset="utf-8" />
-    <script type="importmap">
-      {
-        "imports": {
-          "@google/genai": "https://esm.sh/@google/genai",
-          "@google/genai/": "https://esm.sh/@google/genai/",
-          "lit": "https://esm.sh/lit",
-          "lit/": "https://esm.sh/lit/",
-          "marked": "https://esm.sh/marked",
-          "marked/": "https://esm.sh/marked/",
-          "highlight.js": "https://esm.sh/highlight.js@^11.11.1",
-          "marked-highlight": "https://esm.sh/marked-highlight@^2.2.1"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Timetable Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@600;700&display=swap');
+        body {
+            font-family: 'Amiri', serif;
+            /* New: Light blue background */
+            background-color: #E0F2F7; /* A very light blue */
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover; /* Retain for future potential images, but not active now */
+            background-position: center; /* Retain for future potential images */
         }
-      }
-      </script>
-      <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Google+Sans+Text">
-  </head>
-  <body>
+
+        .font-kufi {
+            font-family: 'Cairo', sans-serif;
+        }
+        /* Custom styles for the book card effect */
+        .class-card-book-effect {
+            /* Apply 3D transform directly to the card */
+            transform: perspective(1000px) rotateY(-8deg) rotateX(3deg);
+            transform-origin: center right; /* Rotate from the right edge to simulate a spine */
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            box-shadow: -8px 0px 15px -3px rgba(0,0,0,0.3); /* Stronger shadow on the right for "spine" */
+        }
+
+        .class-card-book-effect:hover {
+            transform: perspective(1000px) rotateY(-3deg) rotateX(1deg) scale(1.02);
+            box-shadow: -12px 0px 20px -3px rgba(0,0,0,0.4);
+        }
+
+        /* Removed: Style for the logo
+        .school-logo {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: contain;
+            z-index: 10;
+        }
+        */
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="antialiased text-right" dir="rtl">
     <div id="root"></div>
-  </body>
+    <script type="module" src="/index.tsx"></script>
+</body>
 </html>
